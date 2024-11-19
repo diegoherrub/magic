@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.domain
+package pol.rubiano.magic.features.domain.random.domain
 
 data class Card(
     // Unique card ID
