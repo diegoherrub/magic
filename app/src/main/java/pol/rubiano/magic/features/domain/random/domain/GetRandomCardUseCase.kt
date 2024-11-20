@@ -1,10 +1,10 @@
 package pol.rubiano.magic.features.domain.random.domain
 
-class GetRandomUseCase(
+class GetRandomCardUseCase(
     private val randomRepository: RandomRepository
 ) {
 
-    operator fun invoke(): Card {
+    suspend operator fun invoke(): List<Card> {
         return randomRepository.getRandomCard()
     }
 }

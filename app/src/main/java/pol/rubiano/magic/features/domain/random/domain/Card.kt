@@ -1,5 +1,7 @@
 package pol.rubiano.magic.features.domain.random.domain
 
+import com.google.gson.annotations.SerializedName
+
 data class Card(
     // Unique card ID
     @SerializedName("id") val id: String,
