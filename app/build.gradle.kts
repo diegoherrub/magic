@@ -55,6 +55,10 @@ dependencies {
     // implementation(libs.koin.android)
     // implementation(libs.koin.annotations)
 
+    // bottom navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     // test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
