@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -44,13 +47,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     // retrofit
-    implementation(libs.retrofit)
+    // implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
     // koin
-    implementation(project.dependencies.platform(libs.koin.bom))
-    implementation(libs.koin.android)
-    implementation(libs.koin.annotations)
+    // implementation(project.dependencies.platform(libs.koin.bom))
+    // implementation(libs.koin.android)
+    // implementation(libs.koin.annotations)
 
     // test
     testImplementation(libs.junit)

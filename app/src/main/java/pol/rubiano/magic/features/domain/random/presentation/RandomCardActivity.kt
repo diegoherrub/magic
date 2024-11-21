@@ -1,15 +1,12 @@
-package pol.rubiano.magic
+package pol.rubiano.magic.features.domain.random.presentation
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import pol.rubiano.magic.R
 import pol.rubiano.magic.features.domain.random.domain.Card
-import pol.rubiano.magic.features.domain.random.presentation.RandomCardFactory
 
-class MainActivity : AppCompatActivity() {
+class RandomCardActivity: AppCompatActivity() {
 
     private val randomCardFactory: RandomCardFactory = RandomCardFactory()
     private val viewModel = randomCardFactory.buildRandomCardViewModel()
@@ -18,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val randomCard = viewModel.viewCreated()
-        viewModel.itemSelected()
         bindData(randomCard)
+        viewModel.itemSelected()
     }
 
     private fun bindData(randomCard: Card) {
@@ -55,4 +52,3 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 }
-
