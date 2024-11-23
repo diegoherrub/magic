@@ -1,19 +1,27 @@
 package pol.rubiano.magic.app.domain
 
+import org.koin.core.annotation.Single
+
+@Single
 sealed class ErrorApp : Throwable(){
-    object InternetErrorApp : ErrorApp() {
+    data object InternetErrorApp : ErrorApp() {
         private fun readResolve(): Any = InternetErrorApp
     }
 
-    object ServerErrorApp: ErrorApp() {
+    data object ServerErrorApp: ErrorApp() {
         private fun readResolve(): Any = ServerErrorApp
     }
 
-    object DataErrorApp: ErrorApp() {
+    data object DataErrorApp: ErrorApp() {
         private fun readResolve(): Any = DataErrorApp
     }
 
-    object UnknowErrorApp: ErrorApp() {
+    data object UnknowErrorApp: ErrorApp() {
         private fun readResolve(): Any = UnknowErrorApp
+    }
+
+    // TODO - create a new error in requestExt.kt ¿?
+    data object FailedGetRandomCard: ErrorApp() {
+        private fun readResolve(): Any = FailedGetRandomCard
     }
 }

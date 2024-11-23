@@ -2,6 +2,7 @@ package pol.rubiano.magic.features.domain.random.data.local
 
 import android.content.Context
 import com.google.gson.Gson
+import pol.rubiano.magic.app.domain.ErrorApp
 import pol.rubiano.magic.features.domain.random.domain.RandomCard
 
 class RandomCardXmlLocalDataSource(
@@ -13,19 +14,19 @@ class RandomCardXmlLocalDataSource(
 
     fun saveAllXmlRandomCards(randomCards: List<RandomCard>) {
         val editor = sharedPref.edit()
-        randomCards.forEach {
-            editor.putString(it.id, gson.toJson(it))
+        randomCards.forEach { randomCard ->
+            editor.putString(randomCard.id, gson.toJson(randomCard))
         }
         editor.apply()
     }
 
-    fun getAllXmlRandomCards(): List<RandomCard> {
+    fun getAllXmlRandomCards(): Result<List<RandomCard>> {
         val randomCards = mutableListOf<RandomCard>()
         val mapRandomCard = sharedPref.all
         mapRandomCard.values.forEach {
             val randomCard = gson.fromJson(it as String, RandomCard::class.java)
             randomCards.add(randomCard)
         }
-        return randomCards
+        return Result.success(randomCards)
     }
 }

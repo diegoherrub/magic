@@ -5,7 +5,7 @@ import pol.rubiano.magic.features.domain.random.domain.ImageUris
 
 class RandomCardMockRemoteDataSource {
 
-    private fun randomCard(): List<RandomCard> {
+    fun getMockRandomCard(): List<RandomCard> {
 
         val mockUrisCard1 = ImageUris(
             artCrop = "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/e/6ec7fa5b-d0f4-497e-8d73-72b0ff3799b6.jpg"
@@ -43,9 +43,5 @@ class RandomCardMockRemoteDataSource {
                 "Mark Poole"
             )
         )
-    }
-
-    fun getMockRandomCard(): List<RandomCard> {
-        return randomCard()
     }
 }

@@ -10,7 +10,7 @@ class RandomCardAdapter():
     ListAdapter<RandomCard, RandomCardViewHolder>(RandomCardDiffUtil())
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RandomCardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_random_card_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_random_card_item, parent, false)
         return RandomCardViewHolder(view)
     }
 

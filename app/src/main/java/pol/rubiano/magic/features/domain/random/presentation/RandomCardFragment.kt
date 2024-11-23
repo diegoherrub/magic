@@ -9,20 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import pol.rubiano.magic.R
-import pol.rubiano.magic.app.domain.ErrorApp
 import pol.rubiano.magic.databinding.FragmentRandomCardBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RandomCardFragment: Fragment(
+class RandomCardFragment : Fragment(
     R.layout.fragment_random_card
 ) {
-
-    private lateinit var randomCardFactory: RandomCardFactory
-    private lateinit var viewModel: RandomCardViewModel
-
     private var _binding: FragmentRandomCardBinding? = null
     private val binding get() = _binding!!
 
     private val randomCardAdapter = RandomCardAdapter()
+    private val viewModel: RandomCardViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,24 +44,25 @@ class RandomCardFragment: Fragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        randomCardFactory = RandomCardFactory(requireContext())
-        viewModel = randomCardFactory.buildRandomCardViewModel()
         viewModel.randomCardCreated()
         setupObserver()
     }
 
     private fun setupObserver() {
-        val eventObserver = Observer<RandomCardViewModel.UiState> {
-            it.randomCard?.let { card ->
+        val eventObserver = Observer<RandomCardViewModel.UiState> { uiState ->
+            uiState.randomCard?.let { card ->
                 randomCardAdapter.submitList(card)
             }
-            it.errorApp?.let {
-
+            uiState.errorApp?.let {
+                Log.e("@dev", "Error: ${it.message}")
+            } ?: run {
+                Log.d("@dev", "Sin errores")
             }
-            if (it.isLoading) {
-                Log.d("@dev", "Cargando setupObserver...")
+
+            if (uiState.isLoading) {
+                Log.d("@dev", "Cargando Random Card...")
             } else {
-                Log.d("@dev", "Cargado!")
+                Log.d("@dev", "Cargada Random Card!")
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, eventObserver)
