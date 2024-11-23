@@ -2,7 +2,7 @@ package pol.rubiano.magic.app
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.GlobalContext.startKoin
+import org.koin.core.context.startKoin
 import pol.rubiano.magic.app.di.AppModule
 import pol.rubiano.magic.app.di.LocalModule
 import pol.rubiano.magic.app.di.RemoteModule

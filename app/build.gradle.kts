@@ -23,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -61,6 +60,12 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
 
+    // ksp
+    ksp(libs.koin.ksp)
+    ksp(libs.room.ksp)
+    implementation(libs.room.runtime)
+    implementation(libs.room.coroutines)
+
     // bottom navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
@@ -71,6 +76,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
-ksp{
+ksp {
     arg("KOIN_CONFIG_CHECK", "true")
 }
