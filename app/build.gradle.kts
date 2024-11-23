@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.utils.IMPLEMENTATION
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "pol.rubiano.magic.app"
+    namespace = "pol.rubiano.magic"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "pol.rubiano.magic.app"
+        applicationId = "pol.rubiano.magic"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -31,13 +29,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
-
     buildFeatures {
         viewBinding = true
     }
@@ -50,30 +47,30 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.gson)
-    implementation(libs.converter.gson)
+
+    // retrofit
     implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.gson.serializer)
+
+    // coil
     implementation(libs.coil)
 
+    // koin
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
 
-    implementation(libs.okhttp.log.interceptor)
+    // bottom navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
-    ksp(libs.koin.ksp)
-
-    implementation(libs.room.runtime)
-    ksp(libs.room.ksp)
-    implementation(libs.room.coroutines)
-
+    // test
     testImplementation(libs.junit)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
 ksp{
     arg("KOIN_CONFIG_CHECK", "true")
 }
