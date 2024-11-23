@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/random_card"
+        android:id="@+id/random_card_btn"
         android:title="@string/string_random_card"
         android:icon="@drawable/baseline_shuffle_24" />
 </menu>

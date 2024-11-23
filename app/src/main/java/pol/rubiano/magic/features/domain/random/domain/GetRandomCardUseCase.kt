@@ -4,7 +4,7 @@ class GetRandomCardUseCase(
     private val randomCardRepository: RandomCardRepository
 ) {
 
-    operator fun invoke(): Card {
-        return randomCardRepository.getRandomCard()
+    suspend operator fun invoke(): List<RandomCard> {
+        return randomCardRepository.getRandomCardFromRepository()
     }
 }

@@ -47,8 +47,12 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     // retrofit
-    // implementation(libs.retrofit)
+    implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.gson.serializer)
+
+    // coil
+    implementation(libs.coil)
 
     // koin
     // implementation(project.dependencies.platform(libs.koin.bom))
@@ -58,6 +62,7 @@ dependencies {
     // bottom navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.benchmark.common)
 
     // test
     testImplementation(libs.junit)

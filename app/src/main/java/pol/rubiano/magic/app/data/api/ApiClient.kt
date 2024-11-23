@@ -8,7 +8,7 @@ object ApiClient {
 
     private const val BASE_URL = "https://api.scryfall.com/"
 
-    fun provideRetrofit(): Retrofit {
+    private fun provideRetrofit(): Retrofit {
         return Retrofit
             .Builder()
             .baseUrl(BASE_URL)
@@ -16,7 +16,7 @@ object ApiClient {
             .build()
     }
 
-    fun provideRandomService(): RandomCardService {
+    fun provideRandomCardService(): RandomCardService {
         return provideRetrofit().create(RandomCardService::class.java)
     }
 }
