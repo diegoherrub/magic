@@ -49,8 +49,14 @@ dependencies {
 
     // retrofit
     implementation(libs.retrofit)
+
+    // gson
+    implementation(libs.gson)
     implementation(libs.converter.gson)
-    implementation(libs.gson.serializer)
+
+    // bottom navigation
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
 
     // coil
     implementation(libs.coil)
@@ -59,16 +65,12 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
+    implementation(libs.koin.ksp)
 
-    // ksp
-    ksp(libs.koin.ksp)
+    // room
     ksp(libs.room.ksp)
     implementation(libs.room.runtime)
     implementation(libs.room.coroutines)
-
-    // bottom navigation
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
 
     // okhttp
     implementation(libs.okhttp.log.interceptor)
