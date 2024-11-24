@@ -7,27 +7,14 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="pol.rubiano.magic.features.presentation.HomeFragment"
+        android:name="pol.rubiano.magic.features.home.HomeFragment"
         android:label="@string/string_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/fragment_random_card"
-        android:name="pol.rubiano.magic.features.domain.random.presentation.RandomCardFragment"
+        android:name="pol.rubiano.magic.features.randomCard.domain.random.presentation.RandomCardFragment"
         android:label="@string/string_random_card"
         tools:layout="@layout/fragment_random_card">
-        <action
-            android:id="@+id/action_fragment_random_card_to_fragment_random_card_item"
-            app:destination="@id/fragment_random_card_item" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragment_random_card_item"
-        android:name="pol.rubiano.magic.features.domain.random.presentation.RandomCardItemFragment"
-        android:label="@string/string_random_card_item"
-        tools:layout="@layout/fragment_random_card_item">
-        <action
-            android:id="@+id/action_fragment_random_card_item_to_fragment_random_card"
-            app:destination="@id/fragment_random_card" />
     </fragment>
 </navigation>
