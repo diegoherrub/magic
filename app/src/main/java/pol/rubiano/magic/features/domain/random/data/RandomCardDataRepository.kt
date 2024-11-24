@@ -1,5 +1,6 @@
 package pol.rubiano.magic.features.domain.random.data
 
+import android.util.Log
 import org.koin.core.annotation.Single
 import pol.rubiano.magic.app.domain.ErrorApp
 import pol.rubiano.magic.features.domain.random.data.local.RandomCardXmlLocalDataSource
@@ -18,26 +19,58 @@ class RandomCardDataRepository(
 ) : RandomCardRepository {
 
     override suspend fun getRandomCardFromRepository(): Result<List<RandomCard>> {
+
+        Log.d("@dev", "Fetching random card from API...")
         val randomCardFromApi = remoteApi.getApiRandomCard()
-        return randomCardFromApi.onSuccess {
-            localXml.saveAllXmlRandomCards(it)
-            localDb.insertAllDbRandomCards(it)
-        }.onFailure {
-            val randomCardFromDb = localDb.getAllDbRandomCards()
-            if (randomCardFromDb.isEmpty()) {
-                val randomCardFromXml = localXml.getAllXmlRandomCards()
-                randomCardFromXml.onSuccess {
-                    Result.success(randomCardFromXml)
-                }.onFailure {
-                    val randomCardFromMock = remoteMock.getMockRandomCard()
-                    if (randomCardFromMock.isEmpty()) {
-                        Result.failure(ErrorApp.FailedGetRandomCard)
+
+        return randomCardFromApi.onSuccess { cardsFromApi ->
+            Log.d("@dev", "Successfully fetched random card from API")
+            if (cardsFromApi.isEmpty()){
+                Log.d("@dev","Empty cards from API")
+
+                Log.d("@dev", "Fetching random card from DB...")
+                val randomCardFromDb = localDb.getAllDbRandomCards()
+                Log.d("@dev", "Successfully fetched random card from DB")
+
+                if (randomCardFromDb.isEmpty()) {
+                    Log.d("@dev","Empty cards from DB")
+
+                    Log.d("@dev", "Fetching random card from XML...")
+                    val randomCardFromXml = localXml.getAllXmlRandomCards()
+                    Log.d("@dev", "Successfully fetched random card from XML")
+
+                    if (randomCardFromXml.isEmpty()) {
+                        Log.d("@dev","Empty cards from XML")
+
+                        Log.d("@dev", "Fetching random card from Mock...")
+                        val randomCardFromMock = remoteMock.getMockRandomCard()
+                        Log.d("@dev", "Successfully fetched random card from Mock")
+
+                        if (randomCardFromMock.isEmpty()) {
+                            Log.d("@dev","Empty cards from Mock")
+                            Result.success(randomCardFromMock)
+                        } else {
+                            Log.d("@dev","Cards from Mock is not empty")
+                            Result.success(randomCardFromMock)
+                        }
+
                     } else {
-                        Result.success(randomCardFromMock)
+                        Log.d("@dev","Cards from XML is not empty")
+                        Result.success(randomCardFromXml)
                     }
+
+                } else {
+                    Log.d("@dev","Cards from DB is not empty")
+                    Result.success(randomCardFromDb)
                 }
+
             } else {
-                Result.success(randomCardFromDb)
+                Log.d("@dev","Cards from API is not empty")
+                localXml.saveAllXmlRandomCards(cardsFromApi)
+                Log.d("@dev","Saved cards from API to XML")
+                localDb.insertAllDbRandomCards(cardsFromApi)
+                Log.d("@dev","Saved cards from API to DB")
+                Result.success(cardsFromApi)
             }
         }
     }

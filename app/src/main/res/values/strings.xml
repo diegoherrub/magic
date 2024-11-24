@@ -2,7 +2,9 @@
     <string name="app_name">Magic</string>
 
     <!-- Random Card -->
+    <string name="string_random_card_file_xml">random_cards</string>
     <string name="string_random_card">Random Card</string>
     <string name="string_random_card_title">Random Card Title</string>
     <string name="string_content_description_card_art_crop">Image of card\'s name</string>
+    <string name="string_home">Home</string>
 </resources>

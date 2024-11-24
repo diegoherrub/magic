@@ -54,9 +54,9 @@ class RandomCardFragment : Fragment(
                 randomCardAdapter.submitList(card)
             }
             uiState.errorApp?.let {
-                Log.e("@dev", "Error: ${it.message}")
+                Log.e("@dev", "Error App en setupObserver(): ${it.message}")
             } ?: run {
-                Log.d("@dev", "Sin errores")
+                Log.d("@dev", "Sin errores en setupObserver()")
             }
 
             if (uiState.isLoading) {

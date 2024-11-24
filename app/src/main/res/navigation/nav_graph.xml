@@ -3,11 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_random_card">
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="pol.rubiano.magic.features.presentation.HomeFragment"
+        android:label="@string/string_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/home_to_random_card"
+            app:destination="@id/fragment_random_card" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_random_card"
         android:name="pol.rubiano.magic.features.domain.random.presentation.RandomCardFragment"
         android:label="@string/string_random_card"
-        tools:layout="@layout/fragment_random_card" />
+        tools:layout="@layout/fragment_random_card">
+    </fragment>
+
+
 </navigation>
