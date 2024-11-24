@@ -8,8 +8,6 @@
 
     <!-- Random Card -->
     <string name="string_random_card">Random Card</string>
-    <string name="string_random_card_title">Random Card Title</string>
-    <string name="string_random_card_btn">Random Card</string>
     <string name="string_random_card_item">Random Card Item</string>
     <string name="string_random_card_item_image_description">Random Card Item Image Description</string>
     <string name="string_random_card_file_xml">random_cards</string>
