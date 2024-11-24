@@ -17,7 +17,7 @@ class LocalModule {
         val db = Room.databaseBuilder(
             context,
             RandomCardDataBase::class.java,
-            "random_card_database"
+            "random-card-database"
         )
         db.fallbackToDestructiveMigration()
         return db.build()

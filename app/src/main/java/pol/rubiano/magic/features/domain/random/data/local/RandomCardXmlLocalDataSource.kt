@@ -2,7 +2,6 @@ package pol.rubiano.magic.features.domain.random.data.local
 
 import android.content.Context
 import com.google.gson.Gson
-import pol.rubiano.magic.app.domain.ErrorApp
 import pol.rubiano.magic.features.domain.random.domain.RandomCard
 
 class RandomCardXmlLocalDataSource(

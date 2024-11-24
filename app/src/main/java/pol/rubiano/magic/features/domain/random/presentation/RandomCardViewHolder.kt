@@ -2,7 +2,7 @@ package pol.rubiano.magic.features.domain.random.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import pol.rubiano.magic.app.data.loadUrl
+import pol.rubiano.magic.app.extensions.loadUrl
 import pol.rubiano.magic.databinding.FragmentRandomCardItemBinding
 import pol.rubiano.magic.features.domain.random.domain.RandomCard
 

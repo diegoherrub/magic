@@ -70,6 +70,9 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    // okhttp
+    implementation(libs.okhttp.log.interceptor)
+
     // test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
