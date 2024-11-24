@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import pol.rubiano.magic.R
 import pol.rubiano.magic.databinding.FragmentHomeBinding
 
@@ -29,5 +30,10 @@ class HomeFragment: Fragment(
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
