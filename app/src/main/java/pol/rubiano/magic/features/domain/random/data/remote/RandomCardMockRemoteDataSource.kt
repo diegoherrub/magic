@@ -1,8 +1,10 @@
 package pol.rubiano.magic.features.domain.random.data.remote
 
+import org.koin.core.annotation.Single
 import pol.rubiano.magic.features.domain.random.domain.RandomCard
 import pol.rubiano.magic.features.domain.random.domain.ImageUris
 
+@Single
 class RandomCardMockRemoteDataSource {
 
     fun getMockRandomCard(): List<RandomCard> {

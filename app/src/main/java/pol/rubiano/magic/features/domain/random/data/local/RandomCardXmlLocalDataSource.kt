@@ -2,8 +2,10 @@ package pol.rubiano.magic.features.domain.random.data.local
 
 import android.content.Context
 import com.google.gson.Gson
+import org.koin.core.annotation.Single
 import pol.rubiano.magic.features.domain.random.domain.RandomCard
 
+@Single
 class RandomCardXmlLocalDataSource(
     private val context: Context
 ) {
