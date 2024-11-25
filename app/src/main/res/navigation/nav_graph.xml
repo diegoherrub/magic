@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="pol.rubiano.magic.features.home.HomeFragment"
+        android:name="pol.rubiano.magic.features.home.presentation.HomeFragment"
         android:label="@string/string_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/fragment_random_card"
-        android:name="pol.rubiano.magic.features.randomCard.domain.random.presentation.RandomCardFragment"
+        android:name="pol.rubiano.magic.features.randomCard.presentation.RandomCardFragment"
         android:label="@string/string_random_card"
         tools:layout="@layout/fragment_random_card">
     </fragment>

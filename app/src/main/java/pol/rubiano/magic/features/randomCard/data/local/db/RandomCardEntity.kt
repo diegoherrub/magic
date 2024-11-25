@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data.local.db
+package pol.rubiano.magic.features.randomCard.data.local.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

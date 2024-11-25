@@ -1,7 +1,7 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data.remote
+package pol.rubiano.magic.features.randomCard.data.remote
 
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
-import pol.rubiano.magic.features.randomCard.domain.random.domain.ImageUris
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.ImageUris
 
 fun RandomCardApiModel.toModel(): RandomCard {
     return RandomCard(

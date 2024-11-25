@@ -1,13 +1,13 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data
+package pol.rubiano.magic.features.randomCard.data
 
 import android.util.Log
 import org.koin.core.annotation.Single
-import pol.rubiano.magic.features.randomCard.domain.random.data.local.RandomCardXmlLocalDataSource
-import pol.rubiano.magic.features.randomCard.domain.random.data.local.db.RandomCardDbLocalDataSource
-import pol.rubiano.magic.features.randomCard.domain.random.data.remote.RandomCardApiRemoteDataSource
-import pol.rubiano.magic.features.randomCard.domain.random.data.remote.RandomCardMockRemoteDataSource
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCardRepository
+import pol.rubiano.magic.features.randomCard.data.local.RandomCardXmlLocalDataSource
+import pol.rubiano.magic.features.randomCard.data.local.db.RandomCardDbLocalDataSource
+import pol.rubiano.magic.features.randomCard.data.remote.RandomCardApiRemoteDataSource
+import pol.rubiano.magic.features.randomCard.data.remote.RandomCardMockRemoteDataSource
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCardRepository
 
 @Single
 class RandomCardDataRepository(
@@ -21,7 +21,7 @@ class RandomCardDataRepository(
 
         Log.d("@dev", "Fetching random card from API...")
         val randomCardFromApi = remoteApi.getApiRandomCard()
-
+        Log.d("@dev", "randomCardFromApi: $randomCardFromApi")
         return randomCardFromApi.onSuccess { cardsFromApi ->
             Log.d("@dev", "Successfully fetched random card from API")
             if (cardsFromApi.isEmpty()){

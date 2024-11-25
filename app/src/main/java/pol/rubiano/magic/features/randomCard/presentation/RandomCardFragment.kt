@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.randomCard.domain.random.presentation
+package pol.rubiano.magic.features.randomCard.presentation
 
 import android.os.Bundle
 import android.util.Log

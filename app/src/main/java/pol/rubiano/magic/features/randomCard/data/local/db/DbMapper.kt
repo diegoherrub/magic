@@ -1,7 +1,7 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data.local.db
+package pol.rubiano.magic.features.randomCard.data.local.db
 
-import pol.rubiano.magic.features.randomCard.domain.random.domain.ImageUris
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.ImageUris
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 fun RandomCard.toEntity(): RandomCardEntity =
     RandomCardEntity(

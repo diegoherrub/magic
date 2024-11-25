@@ -1,7 +1,7 @@
-package pol.rubiano.magic.features.randomCard.domain.random.presentation
+package pol.rubiano.magic.features.randomCard.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 class RandomCardDiffUtil: DiffUtil.ItemCallback<RandomCard>() {
 

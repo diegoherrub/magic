@@ -1,10 +1,10 @@
-package pol.rubiano.magic.features.randomCard.domain.random.presentation
+package pol.rubiano.magic.features.randomCard.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import pol.rubiano.magic.R
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 class RandomCardAdapter():
     ListAdapter<RandomCard, RandomCardViewHolder>(RandomCardDiffUtil())

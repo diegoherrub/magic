@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.randomCard.domain.random.presentation
+package pol.rubiano.magic.features.randomCard.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,8 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 import pol.rubiano.magic.app.domain.ErrorApp
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
-import pol.rubiano.magic.features.randomCard.domain.random.domain.GetRandomCardUseCase
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.GetRandomCardUseCase
 
 @KoinViewModel
 class RandomCardViewModel(

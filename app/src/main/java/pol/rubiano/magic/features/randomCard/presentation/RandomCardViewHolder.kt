@@ -1,10 +1,10 @@
-package pol.rubiano.magic.features.randomCard.domain.random.presentation
+package pol.rubiano.magic.features.randomCard.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import pol.rubiano.magic.app.extensions.loadUrl
 import pol.rubiano.magic.databinding.FragmentRandomCardBinding
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 class RandomCardViewHolder(
     private val view: View

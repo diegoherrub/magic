@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.home
+package pol.rubiano.magic.features.home.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater

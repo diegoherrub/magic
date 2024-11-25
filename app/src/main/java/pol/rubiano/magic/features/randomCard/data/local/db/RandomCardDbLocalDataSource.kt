@@ -1,7 +1,7 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data.local.db
+package pol.rubiano.magic.features.randomCard.data.local.db
 
 import org.koin.core.annotation.Single
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 @Single
 class RandomCardDbLocalDataSource(

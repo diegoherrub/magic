@@ -1,10 +1,10 @@
-package pol.rubiano.magic.features.randomCard.domain.random.data.local
+package pol.rubiano.magic.features.randomCard.data.local
 
 import android.content.Context
 import com.google.gson.Gson
 import org.koin.core.annotation.Single
 import pol.rubiano.magic.R
-import pol.rubiano.magic.features.randomCard.domain.random.domain.RandomCard
+import pol.rubiano.magic.features.randomCard.domain.RandomCard
 
 @Single
 class RandomCardXmlLocalDataSource(

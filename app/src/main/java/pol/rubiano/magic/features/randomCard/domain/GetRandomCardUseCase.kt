@@ -1,4 +1,4 @@
-package pol.rubiano.magic.features.randomCard.domain.random.domain
+package pol.rubiano.magic.features.randomCard.domain
 
 import org.koin.core.annotation.Single
 import pol.rubiano.magic.app.domain.ErrorApp
