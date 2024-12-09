@@ -15,7 +15,7 @@ class RandomCardEntity(
     @ColumnInfo(name = "type_line") val typeLine: String,
     @ColumnInfo(name = "oracle_text") val oracleText: String?,
     @ColumnInfo(name = "flavor_text") val flavorText: String?,
-    @ColumnInfo(name = "art_crop") val artCrop: String,
+    @ColumnInfo(name = "border_crop") val borderCrop: String,
     @ColumnInfo(name = "set_name") val setName: String,
     @ColumnInfo(name = "released_at") val releasedAt: String,
     @ColumnInfo(name = "rarity") val rarity: String,

@@ -7,7 +7,7 @@ data class RandomCard(
     val typeLine: String,
     val oracleText: String?,
     val flavorText: String?,
-    val artCrop: ImageUris,
+    val borderCrop: ImageUris,
     val setName: String,
     val releasedAt: String,
     val rarity: String,
@@ -15,6 +15,6 @@ data class RandomCard(
 )
 
 data class ImageUris(
-    val artCrop: String
+    val borderCrop: String
 )
 

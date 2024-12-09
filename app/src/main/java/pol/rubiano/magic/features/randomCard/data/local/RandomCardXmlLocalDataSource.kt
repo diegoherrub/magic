@@ -14,6 +14,12 @@ class RandomCardXmlLocalDataSource(
     private val sharedPref = context.getSharedPreferences(context.getString(R.string.string_random_card_file_xml), Context.MODE_PRIVATE)
     private val gson = Gson()
 
+    fun saveXmlRandomCard(randomCard: RandomCard) {
+        val editor = sharedPref.edit()
+        editor.putString(randomCard.id, gson.toJson(randomCard))
+        editor.apply()
+    }
+
     fun saveAllXmlRandomCards(randomCards: List<RandomCard>) {
         val editor = sharedPref.edit()
         randomCards.forEach { randomCard ->

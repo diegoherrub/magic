@@ -8,7 +8,7 @@ class GetRandomCardUseCase(
     private val randomCardRepository: RandomCardRepository
 ) {
 
-    suspend operator fun invoke(): Result<List<RandomCard>> {
+    suspend operator fun invoke(): Result<RandomCard> {
         val randomCard = randomCardRepository.getRandomCardFromRepository()
         return randomCard.fold(
             onSuccess = {

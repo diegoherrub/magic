@@ -7,6 +7,9 @@ import pol.rubiano.magic.features.randomCard.domain.RandomCard
 class RandomCardDbLocalDataSource(
     private val randomCardDao: RandomCardDao
 ) {
+    suspend fun insertDbRandomCard(randomCard: RandomCard) {
+        randomCardDao.insert(randomCard.toEntity())
+    }
 
     suspend fun insertAllDbRandomCards(randomCards: List<RandomCard>) {
         val randomCardsList = randomCards.map {

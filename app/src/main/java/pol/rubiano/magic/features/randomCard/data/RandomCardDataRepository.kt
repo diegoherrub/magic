@@ -17,59 +17,59 @@ class RandomCardDataRepository(
     private val remoteApi: RandomCardApiRemoteDataSource
 ) : RandomCardRepository {
 
-    override suspend fun getRandomCardFromRepository(): Result<List<RandomCard>> {
+    override suspend fun getRandomCardFromRepository(): Result<RandomCard> {
 
-        Log.d("@dev", "Fetching random card from API...")
+        Log.d("@Diego", "Fetching random card from API...")
         val randomCardFromApi = remoteApi.getApiRandomCard()
-        Log.d("@dev", "randomCardFromApi: $randomCardFromApi")
-        return randomCardFromApi.onSuccess { cardsFromApi ->
-            Log.d("@dev", "Successfully fetched random card from API")
-            if (cardsFromApi.isEmpty()){
-                Log.d("@dev","Empty cards from API")
+        Log.d("@Diego", "randomCardFromApi: $randomCardFromApi")
+        return randomCardFromApi.onSuccess { cardFromApi ->
+            Log.d("@Diego", "Successfully fetched random card from API")
+            if (cardFromApi == null){
+                Log.d("@Diego","Empty cards from API")
 
-                Log.d("@dev", "Fetching random card from DB...")
+                Log.d("@Diego", "Fetching random card from DB...")
                 val randomCardFromDb = localDb.getAllDbRandomCards()
-                Log.d("@dev", "Successfully fetched random card from DB")
+                Log.d("@Diego", "Successfully fetched random card from DB")
 
                 if (randomCardFromDb.isEmpty()) {
-                    Log.d("@dev","Empty cards from DB")
+                    Log.d("@Diego","Empty cards from DB")
 
-                    Log.d("@dev", "Fetching random card from XML...")
+                    Log.d("@Diego", "Fetching random card from XML...")
                     val randomCardFromXml = localXml.getAllXmlRandomCards()
-                    Log.d("@dev", "Successfully fetched random card from XML")
+                    Log.d("@Diego", "Successfully fetched random card from XML")
 
                     if (randomCardFromXml.isEmpty()) {
-                        Log.d("@dev","Empty cards from XML")
+                        Log.d("@Diego","Empty cards from XML")
 
-                        Log.d("@dev", "Fetching random card from Mock...")
+                        Log.d("@Diego", "Fetching random card from Mock...")
                         val randomCardFromMock = remoteMock.getMockRandomCard()
-                        Log.d("@dev", "Successfully fetched random card from Mock")
+                        Log.d("@Diego", "Successfully fetched random card from Mock")
 
-                        if (randomCardFromMock.isEmpty()) {
-                            Log.d("@dev","Empty cards from Mock")
+                        if (randomCardFromMock == null) {
+                            Log.d("@Diego","Empty cards from Mock")
                             Result.success(randomCardFromMock)
                         } else {
-                            Log.d("@dev","Cards from Mock is not empty")
+                            Log.d("@Diego","Cards from Mock is not empty")
                             Result.success(randomCardFromMock)
                         }
 
                     } else {
-                        Log.d("@dev","Cards from XML is not empty")
+                        Log.d("@Diego","Cards from XML is not empty")
                         Result.success(randomCardFromXml)
                     }
 
                 } else {
-                    Log.d("@dev","Cards from DB is not empty")
+                    Log.d("@Diego","Cards from DB is not empty")
                     Result.success(randomCardFromDb)
                 }
 
             } else {
-                Log.d("@dev","Cards from API is not empty")
-                localXml.saveAllXmlRandomCards(cardsFromApi)
-                Log.d("@dev","Saved cards from API to XML")
-                localDb.insertAllDbRandomCards(cardsFromApi)
-                Log.d("@dev","Saved cards from API to DB")
-                Result.success(cardsFromApi)
+                Log.d("@Diego","Cards from API is not empty")
+                localXml.saveXmlRandomCard(cardFromApi)
+                Log.d("@Diego","Saved cards from API to XML")
+                localDb.insertDbRandomCard(cardFromApi)
+                Log.d("@Diego","Saved cards from API to DB")
+                Result.success(cardFromApi)
             }
         }
     }

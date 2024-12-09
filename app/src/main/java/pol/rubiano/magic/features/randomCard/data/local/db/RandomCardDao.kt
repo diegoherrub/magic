@@ -9,6 +9,9 @@ import androidx.room.Query
 interface RandomCardDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(randomCard: RandomCardEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg randomCars: RandomCardEntity)
 
     @Query("SELECT * FROM $RANDOM_CARD_TABLE")

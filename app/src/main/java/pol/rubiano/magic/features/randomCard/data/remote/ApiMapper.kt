@@ -11,7 +11,7 @@ fun RandomCardApiModel.toModel(): RandomCard {
         this.typeLine,
         this.oracleText,
         this.flavorText,
-        ImageUris(this.artCrop.artCrop),
+        ImageUris(this.imageUris.borderCrop),
         this.setName,
         this.releasedAt,
         this.rarity,

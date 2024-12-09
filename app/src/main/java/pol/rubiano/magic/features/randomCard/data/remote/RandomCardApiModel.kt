@@ -9,7 +9,7 @@ data class RandomCardApiModel(
     @SerializedName("type_line") val typeLine: String,
     @SerializedName("oracle_text") val oracleText: String?,
     @SerializedName("flavor_text") val flavorText: String?,
-    @SerializedName("art_crop") val artCrop: ImageUris,
+    @SerializedName("image_uris") val imageUris: ImageUris,
     @SerializedName("set_name") val setName: String,
     @SerializedName("released_at") val releasedAt: String,
     @SerializedName("rarity") val rarity: String,
@@ -17,5 +17,5 @@ data class RandomCardApiModel(
 )
 
 data class ImageUris (
-    @SerializedName("art_crop") val artCrop: String
+    @SerializedName("border_crop") val borderCrop: String
 )

@@ -37,6 +37,6 @@ class RandomCardViewModel(
     data class UiState(
         val isLoading: Boolean = false,
         val errorApp: ErrorApp? = null,
-        val randomCard: List<RandomCard>? = null
+        val randomCard: RandomCard? = null
     )
 }
