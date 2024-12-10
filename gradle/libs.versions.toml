@@ -22,6 +22,7 @@ interceptor = "4.12.0"
 gson="2.11.0"
 coil = "2.7.0"
 room-version = "2.6.1"
+coreKtxVersion = "1.6.1"
 
 
 [libraries]
@@ -51,6 +52,7 @@ okhttp-log-interceptor = { group = "com.squareup.okhttp3", name = "logging-inter
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-version"  }
 room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room-version"  }
 room-coroutines = { group = "androidx.room", name = "room-ktx", version.ref = "room-version"  }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
 
 
 [plugins]

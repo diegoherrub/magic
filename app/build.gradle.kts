@@ -60,6 +60,7 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
+    implementation(libs.core.ktx)
     ksp(libs.koin.ksp)
 
     ksp(libs.room.ksp)
