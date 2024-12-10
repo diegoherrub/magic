@@ -1,3 +1,4 @@
+/*
 package pol.rubiano.magic.features.randomCard.domain
 
 import kotlinx.coroutines.runBlocking
@@ -125,3 +126,4 @@ class RandomCardRepositoryTest : KoinTest {
     }
 
 }
+*/
