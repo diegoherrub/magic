@@ -19,10 +19,9 @@ class RandomCardViewModel(
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> get() = _uiState
 
-    fun randomCardCreated() {
+    fun randomCardViewCreated() {
 
         _uiState.value = UiState(isLoading = true)
-
         viewModelScope.launch(Dispatchers.IO) {
             val randomCard = getRandomCardUseCase.invoke()
             _uiState.postValue(
